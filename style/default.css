@@ -1,0 +1,14 @@
+
+@font-face{
+    font-family: padrao;
+    src:url(fonts/friz-quadrata-std.otf)
+}
+
+body,html{
+    margin: 0;
+    font-family: padrao;
+}
+
+div{
+   font-family: padrao; 
+}

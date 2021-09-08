@@ -1,0 +1,114 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+.avatar{
+    background-color: gainsboro;
+    border-radius: 50px 50px;
+    padding: 15px;
+    box-shadow: 1px 1px 2px black;
+    margin-left:10px;
+    display:flex;
+    flex-direction: column;
+}
+.userState{
+    font-size: 15px;
+    color:green;
+}
+.topBar{
+    background-color: white;
+    border-bottom:1px solid gainsboro;
+    padding: 10px;
+    display:flex;
+    flex-direction:column;
+    
+}
+.topBarContent{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.infoUser{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.messageState{
+
+    text-align: center;
+
+}
+.IconNewMessage{
+   font-size: 25px;
+   color:darkorange;
+   text-shadow: 1px 1px 1px black;
+
+}
+
+.findBar{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+#findTalk{
+    width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border: 0px;
+    background-color: gainsboro;
+    border-radius: 30px;
+}
+
+
+.content{
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: scroll;
+    max-width: fit-content;
+}
+
+.content .avatar{
+    font-size: 25px;
+    color:gray;
+    background-color: gainsboro;
+    border-radius: 90px;
+    padding: 15px 12px;
+    margin:10px ;
+}
+
+.talks{
+    border-bottom: gainsboro 1px solid;
+    display:flex;
+    flex-direction: row;
+}
+.messageBox{
+    display:flex;
+    flex-direction: column;
+}
+.message{
+    font-size: 12px;
+    color:gray;
+}
+.infoMessage{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dateTime, .messageCount{
+    color:blue;
+    font-size: 12px;
+}
+.talkBox{
+    display:flex;
+    flex-direction: row;
+}
+
