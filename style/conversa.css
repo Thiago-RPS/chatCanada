@@ -69,12 +69,29 @@
 
 .content{
     display:flex;
-    flex-direction: column;
+    flex-direction:row;
     padding: 10px;
+    
+    min-width: fit-content;
+}
+.containerTalk{
     overflow: scroll;
-    max-width: fit-content;
 }
 
+.containerMsg{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+
+}
+.msgUseBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+
+}
 .content .avatar{
     font-size: 25px;
     color:gray;
@@ -110,5 +127,10 @@
 .talkBox{
     display:flex;
     flex-direction: row;
+    width:300px;
+}
+
+.talkBox.select{
+    background-color: orange;
 }
 
