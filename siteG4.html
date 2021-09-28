@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAMAE</title>
+    <style>
+      
+        .username, .email, .celular, .senha, .confsenha {
+       margin-left: auto;
+       margin-right: auto;
+       margin-top: 10px;
+       width: 6px;
+       text-align: center;
+       flex-direction: column;
+       display: flex;
+       padding: 5px;
+       width: 20%;
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+    
+       .titulo{
+        text-align: center;
+       }
+       
+       .colocarfoto{
+    max-width:150px;
+    max-height:100px;
+    width: auto;
+    height: auto;
+    position: absolute;
+    margin-left:400px;
+    margin-top: 22px
+}
+       
+       .btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: rgb(255, 180, 41);
+  border: 2px solid rgb(149, 92, 16);
+  border-radius: 0.6em;
+  color: whitesmoke;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 15px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-left: auto;
+margin-right: auto;
+}
+.btn:hover, .btn:focus {
+  background-color: rgb(149, 92, 16);
+  outline: 0;
+}
+
+.first {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.first:hover {
+  box-shadow: 0 0 40px 40px rgb(149, 92, 16) inset;
+}
+body {
+        background-color: rgb(255, 180, 41);
+    
+      }
+    </style>
+</head>
+<body>
+
+    <img src="https://icons-for-free.com/iconfiles/png/512/customer+information+personal+profile+user+icon-1320086045331670685.png" alt="Coloque sua foto!" class="colocarfoto" width="120" height="120" contenteditable = "true">
+    <div class="titulo">CADASTRE-SE</div>
+    <form action="">
+    <input type="text" class="username" placeholder="digite um username...">
+    <input type="text" class="email" placeholder="digite um email...">
+    <input type="text" class="celular" placeholder="digite seu celular...">
+    <input type="password" class="senha" placeholder="digite uma senha...">
+    <input type="password" class="confsenha" placeholder="confirme a senha...">
+  </form>
+    <button class="btn first">CONFIRMAR</button>
+</body>
+</html>
