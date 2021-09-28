@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Recuperacao de senha</title>
+		</head>
+		<style>
+		*{margin:0;padding:0;box-sizing: border-box;}
+		body{
+			background-color: #FF8C00
+		}
+		form{
+			background-color: #8B4513;
+			max-width: 500px;
+			width: 70%;
+			padding: 20px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+		form h3{
+			text-align: center;
+			color:#FF8C00;
+			font-family:'Comic Sans Script';
+			font-size: 30px;
+		}
+		form input[type=text],
+		form input[type=password]{
+			width: 100%;
+			height:35px;
+			border:1px solid #ccc;
+			padding-left: 10px;
+			margin: 10px;
+		}
+		form input[type=password]{
+			width: 100%;
+			height:35px;
+			border:1px solid #ccc;
+			padding-left: 10px;
+			margin: 10px;
+		}
+		form input[type=submit]{
+			width: 100%;
+			height:35px;
+			border:1px solid #ccc;
+			padding-left: 10px;
+			margin: 10px;
+			cursor: pointer;
+			background:#A0522D;
+			color: white;
+			border:0;
+		}
+		</style>
+	<body>
+		<form>
+			<h3>Recupere sua senha</h3>
+			<input type="text" name="email" placeholder="exemple@exemple.com"/>
+			<input type="password" name="senha" placeholder="Nova senha"/>
+			<input type="password" name="confirmarsenha" placeholder="Confirme sua senha">
+			<input type="submit" name="acao" value="Solicitar E-mail"/>
+		</form>
+	</body>
+</html>
