@@ -7,9 +7,7 @@
 body,html{
     margin: 0;
     top:0px;
-    display:inline-block;
     font-family: padrao;
-    height:100%;
     background-color: rgb(255,115,20);
 }
 
@@ -24,3 +22,64 @@ div{
     padding: 15px 12px;
     margin:10px ;
 }
+
+/*-- Código de estilização do input -- */
+.control-input{
+    width:80%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.control-input label{
+    position: absolute;
+    height: 100%;
+    width:100%;
+    left:0%;
+    bottom: 0%;
+    pointer-events: none;
+    border-bottom: 1px solid gray;
+}
+
+.control-input input{
+    width:100% !important;
+    height: 100% !important; 
+    color:#595f6e;
+    padding-top: 15px;
+    border:none;
+    margin: 0px !important;
+    outline: none;
+}
+
+.control-input label .content-text{
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+    width:100%;
+    color:gray;
+    transition: all .3s ease;
+    font-size: 16px;
+}
+.control-input input:focus + label .content-text,
+.control-input input:valid + label .content-text{
+
+    transform: translateY(-150%);
+    color:#ff7314;
+    font-size: 12px;
+}
+
+.control-input input:focus + label::after,
+.control-input input:valid + label::after{
+    transform: translateY(0);
+}
+
+.control-input label::after{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    border-bottom: solid 1px rgb(255,115,20);
+    transform: translateX(-100%);
+}
+
