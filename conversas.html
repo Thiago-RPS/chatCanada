@@ -11,7 +11,90 @@
 
 </head>
 
+<script>
 
+    var moduleTalk = (json) => {
+        //{name:"userName", icon:"userPhoto", msgLast:"oi", date:objct Date,readed:true, countMsg:12}
+        var elTalkBox = document.createElement("div")
+        elTalkBox.className = "talkBox"
+        var elUserIcon = document.createElement("div")
+        elUserIcon.className="iconUser"
+        if (json.icon.length == 0) {
+            var elIU = document.createElement("i")
+            elIU.className = "fas fa-users avatar"
+            elUserIcon.appendChild(elIU)
+        } else {
+            var elIU = document.createElement("img")
+            elIU.src = json.icon
+            elIU.className = "avatar"
+            elUserIcon.appendChild(elIU)
+        }
+        // --  add elUserIcon in elTalkBox
+        elTalkBox.appendChild(elUserIcon)
+        var elTalks = document.createElement("div")
+        elTalks.className = "talks"
+        var
+            elMsgBox = document.createElement("div")
+        elMsgBox.className = "messageBox"
+
+        var
+            elUserName = document.createElement("span")
+        elUserName.className = 'userName'
+        elUserName.innerText = json.name;
+        // -- add elUsername in elMsgBox
+        elMsgBox.appendChild(elUserName)
+
+        var
+            elMessage = document.createElement("span")
+        elMessage.className = 'message'
+        elMessage.innerText = json.msgLast;
+        // -- add elMessage in elMsgBox
+        elMsgBox.appendChild(elMessage)
+        // -- add elMessageBox in Talks
+        elTalks.appendChild(elMsgBox)
+
+        var
+            elInfo = document.createElement("div")
+        elInfo.className = "infoMessage"
+        var elDate = document.createElement("span")
+        elDate.className="dateTime"
+        elDate.innerText = json.date
+        // -- add elDate in elInfo
+        elInfo.appendChild(elDate)
+        // -- add elInfo in elTalks
+        elTalks.appendChild(elInfo)
+
+        // -- add elTalk in TalkBox
+        elTalkBox.appendChild(elTalks)
+
+        return elTalkBox
+    }
+
+    window.onload = function () {
+          var jTalks = [
+              {name:"Freitas", 
+              icon:"img/freitas.jpg", 
+              msgLast:"Eai Thiagão blz vou para a aula", 
+              date:new Date(),
+              readed:true, 
+              countMsg:12
+                },
+                {name:"Alana", 
+              icon:"img/alana.jpg", 
+              msgLast:"Pro como faz isso", 
+              date:new Date(),
+              readed:true, 
+              countMsg:1
+                } 
+
+            ]  
+
+        jTalks.forEach(obj=>{
+            var el = moduleTalk(obj)
+            document.getElementsByClassName("containerTalk").item(0).appendChild(el)
+        })    
+    }
+</script>
 
 
 <body>
@@ -33,186 +116,7 @@
 
         <div class="content">
             <div class="containerTalk">
-                <div class="talkBox select" id="cv1">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="talkBox">
-                    <div class="iconUser">
-                        <i class="fas fa-users avatar"></i>
-                    </div>
-                    <div class="talks">
-                        <div class="messageBox">
-                            <span class="userName">Borges Lagoa</span>
-                            <span class="message">Bom dia caras de pau como vcs estão seus malcos</span>
-                        </div>
-                        <div class="infoMessage">
-                            <span class="dateTime">10:40</span>
-                            <span class="messageCount">34</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="containerMsg">
                 <div class="msgUseBar">
@@ -253,9 +157,10 @@
                 </div>
                 <div class="msgSendBox">
                     <div class="textSend">
-                        <input type="text" class="textBox">
+                        <div class="textBox" contentEditable=true></div>
+
                     </div>
-                    
+
                     <i class="fas fa-paper-plane send"></i>
                 </div>
             </div>
