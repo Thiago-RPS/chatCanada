@@ -42,8 +42,12 @@
     background-color: white;
 }
 .icon{
-    font-size: 60px;
-    color: rgb(233, 159, 23);
+    font-size: 25px;
+    color:gray;
+    background-color: gainsboro;
+    border-radius: 90px;
+    padding: 15px 16px;
+    margin:10px ;
 }
 .userContent{
     padding-left:10px;
