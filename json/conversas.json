@@ -1,0 +1,25 @@
+[
+    {
+        "name":"Freitas", 
+    "icon":"img/freitas.jpg", 
+    "msgLast":"Eai Thiagão blz vou para a aula", 
+    "date":"12/10/2021",
+    "readed":true, 
+    "countMsg":12
+      },
+      {"name":"Alana", 
+    "icon":"img/alana.jpg", 
+    "msgLast":"Pro como faz isso hj em dia", 
+    "date":"19/10/2021",
+    "readed":true, 
+    "countMsg":1
+      },
+      {"name":"Isa", 
+        "icon":"img/alana.jpg", 
+        "msgLast":"Bom dia Pessoal", 
+        "date":"19/10/2021",
+        "readed":true, 
+        "countMsg":1
+          }  
+
+  ]  

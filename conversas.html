@@ -18,7 +18,7 @@
         var elTalkBox = document.createElement("div")
         elTalkBox.className = "talkBox"
         var elUserIcon = document.createElement("div")
-        elUserIcon.className="iconUser"
+        elUserIcon.className = "iconUser"
         if (json.icon.length == 0) {
             var elIU = document.createElement("i")
             elIU.className = "fas fa-users avatar"
@@ -57,7 +57,7 @@
             elInfo = document.createElement("div")
         elInfo.className = "infoMessage"
         var elDate = document.createElement("span")
-        elDate.className="dateTime"
+        elDate.className = "dateTime"
         elDate.innerText = json.date
         // -- add elDate in elInfo
         elInfo.appendChild(elDate)
@@ -71,28 +71,46 @@
     }
 
     window.onload = function () {
-          var jTalks = [
-              {name:"Freitas", 
-              icon:"img/freitas.jpg", 
-              msgLast:"Eai Thiagão blz vou para a aula", 
-              date:new Date(),
-              readed:true, 
-              countMsg:12
-                },
-                {name:"Alana", 
-              icon:"img/alana.jpg", 
-              msgLast:"Pro como faz isso", 
-              date:new Date(),
-              readed:true, 
-              countMsg:1
-                } 
+        var x = new XMLHttpRequest();
+        
+        var json = []
+        x.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+                json = (JSON.parse(x.responseText))
+            }
+        }
+        x.open("GET", "JSON/conversas.json?user=Alunos", true);
+        x.send();
 
-            ]  
+        document.getElementById("findTalk").onkeyup=function(){
+            var str = this.value
+            callBack(json, str)
+        }
 
-        jTalks.forEach(obj=>{
-            var el = moduleTalk(obj)
-            document.getElementsByClassName("containerTalk").item(0).appendChild(el)
-        })    
+        var callBack = function (jTalks, str) {
+            var str
+
+            var j = jTalks.filter(obj => {
+                if (str.length == "")
+                   return true
+                var regEx = new RegExp(str,"gi")
+                if (regEx.test(obj.msgLast)==true){
+                    return true    
+                }
+                if (regEx.test(obj.name)==true){
+                    return true    
+                }    
+                return false
+            })
+            console.log(j)
+            document.getElementsByClassName("containerTalk").item(0).innerHTML=""
+            
+            j.forEach(obj=>{
+                var el = moduleTalk(obj)
+                document.getElementsByClassName("containerTalk").item(0).appendChild(el)
+            })
+        }
     }
 </script>
 
