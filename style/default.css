@@ -1,4 +1,3 @@
-
 @font-face{
     font-family: padrao;
     src:url(fonts/friz-quadrata-std.otf)
@@ -82,4 +81,3 @@ div{
     border-bottom: solid 1px rgb(255,115,20);
     transform: translateX(-100%);
 }
-
