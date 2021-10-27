@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAMAE</title>
+    <script>
+        var emailRegex = document.getElementByClassName("email")
+        var nomeUsuario = document.getElementByClassName("username")
+        var telefone = Number(document.getElementByClassName("telefone"))
+        var senha = document.getElementByClassName("senha")
+        var confsenha = document.getElementByClassName("confsenha")
+function validSenha() {        
+if (senha == confsenha) {
+    window.alert("senhas corretas")
+}
+if (senha != confsenha) {
+    window.alert("as senhas não condizem")
+}   
+}
+    </script>
+    <style>@font-face{
+        font-family: padrao;
+        src:url(fonts/friz-quadrata-std.otf)
+    }
+    
+    body,html{
+        margin: 0;
+        top:0px;
+        font-family: padrao;
+        background-color: rgb(255,115,20);
+    }
+    
+    div{
+       font-family: padrao; 
+    }
+    .avatar{
+        font-size: 25px;
+        color:gray;
+        background-color: gainsboro;
+        border-radius: 90px;
+        padding: 15px 12px;
+        margin:10px ;
+    }
+    
+    
+    .control-input{
+        width:80%;
+        height: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .control-input label{
+        position: absolute;
+        height: 100%;
+        width:100%;
+        left:0%;
+        bottom: 0%;
+        pointer-events: none;
+        border-bottom: 1px solid gray;
+    }
+    
+    .control-input input{
+        width:100% !important;
+        height: 100% !important; 
+        color:#595f6e;
+        padding-top: 15px;
+        border:none;
+        margin: 0px !important;
+        outline: none;
+    }
+    
+    .control-input label .content-text{
+        position: absolute;
+        bottom: 0;
+        font-size: 18px;
+        width:100%;
+        color:gray;
+        transition: all .3s ease;
+        font-size: 16px;
+    }
+    .control-input input:focus + label .content-text,
+    .control-input input:valid + label .content-text{
+    
+        transform: translateY(-150%);
+        color:#ff7314;
+        font-size: 12px;
+    }
+    
+    .control-input input:focus + label::after,
+    .control-input input:valid + label::after{
+        transform: translateY(0);
+    }
+    
+    .control-input label::after{
+        content:"";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        border-bottom: solid 1px rgb(255,115,20);
+        transform: translateX(-100%);
+    }
+    body{
+                background-color: #FF8C00;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                min-height:100vh;
+                align-items: center;
+            }
+            form{
+                background-color: white;
+                max-width: 500px;
+                width: 80%;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                border-radius:10px;
+                box-shadow: 1px 1px 3px  white;
+            }
+            form h3{
+                text-align: center;
+                color:#FF8C00;
+                font-size: 30px;
+                margin: 0%;
+                margin-bottom: 10px;
+                padding: 10px;
+                width:80%;
+                border-bottom: 1px solid gainsboro;
+                text-shadow:1px 1px 1px black;
+            }
+            
+            form button{
+                padding:10px;
+                margin: 10px;
+                width: 80%;
+                border: none;
+                color:white;
+                background-color: #643200;
+                cursor:pointer;
+                margin-top:15px;
+            }
+            .btn {
+      box-sizing: border-box;
+      -webkit-appearance: none;
+         -moz-appearance: none;
+              appearance: none;
+      background-color: rgb(255, 180, 41);
+      border: 2px solid rgb(149, 92, 16);
+      border-radius: 0.6em;
+      color: whitesmoke;
+      cursor: pointer;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+              align-self: center;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1;
+      margin: 15px;
+      padding: 1.2em 2.8em;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-left: auto;
+    margin-right: auto;
+    }
+    .btn:hover, .btn:focus {
+      background-color: rgb(149, 92, 16);
+      outline: 0;
+    }
+    
+    .first {
+      -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+      transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    }
+    .first:hover {
+      box-shadow: 0 0 40px 40px rgb(149, 92, 16) inset;
+    }</style>
+</head>
+<body>
+
+    <img src="https://icons-for-free.com/iconfiles/png/512/customer+information+personal+profile+user+icon-1320086045331670685.png" alt="Coloque sua foto!" class="colocarfoto" width="120" height="120" contenteditable = "true">
+    <div class="titulo">CADASTRE-SE</div>
+    <form action="">
+        <div class="control-input">
+            <input type="next" name="recSenha" required />
+            <label for="recSenha">
+                <span class="content-text">Username</span>
+            </label>
+        </div>
+        <div class="control-input">
+            <input type="text" name="nmEmail" required />
+            <label for="nmEmail">
+                <span class="content-text">Email</span>
+            </label>
+        </div>
+        <div class="control-input">
+            <input type="password" name="senha" required />
+            <label for="senha">
+                <span class="content-text">Senha</span>
+            </label>
+            </div>
+            <div class="control-input">
+				<input type="password" name="recSenha" required />
+				<label for="recSenha">
+					<span class="content-text">Confirme a senha</span>
+				</label>
+			</div>
+            <div class="control-input">
+				<input type="text" name="recSenha" required />
+				<label for="recSenha">
+					<span class="content-text">Telefone</span>
+				</label>
+			</div>
+            
+    
+  </form>
+    <button onclick="validSenha()" class="btn first">CONFIRMAR</button>
+</body>
+</html>
