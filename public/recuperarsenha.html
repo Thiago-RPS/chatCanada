@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Recuperacao de senha</title>
+			<link rel="stylesheet" href="style/default.css">
+			<link rel="stylesheet" href="style/recuperaSenha.css">
+			<script type="text/javascript" src="style/recsenha.js"></script>
+		</head>
+		
+	<body>
+		<form>
+			<h3>Recupere sua senha</h3>
+			<div class="control-input">
+				<input type="text" name="nmEmail" required onblur= 'digiteEMAIL(nmEmail)' />
+				<label for="nmEmail">
+					<span class="content-text">Email</span>
+				</label>
+			</div>
+			<div class="control-input">
+				<input type="password" name="senha" required />
+				<label for="senha">
+					<span class="content-text">Nova senha</span>
+				</label>
+			</div>
+			<div class="control-input">
+				<input type="password" name="recSenha" required onblur="checarSenha(senha,recSenha)" />
+				<label for="recSenha">
+					<span class="content-text">Confirme a senha</span>
+				</label>
+			</div>
+			
+			
+			<button>Enviar</button>
+		</form>
+	</body>
+</html>

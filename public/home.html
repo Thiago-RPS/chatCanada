@@ -1,0 +1,99 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CONVERSAS</title>
+        <link rel="STYLESHEET" TYPE="text/css" href="style/default.css">
+
+        <title>
+            <Form contato></form>
+        </title>
+        <script>
+            function Reg() {
+                var that = event.target
+                var value = that.value;
+                if (value.length == 0)
+                    return true
+
+                var RegExEmail = new RegExp(/\w+@\w+([.]\w{3})(\ .\w{2})?/g);
+                var RegExCelular = new RegExp(/\b\w{3,}@\w{3,}\ .\w{2,4}(\ .\w{2,4})?/g);
+                if (RegExCelular.test(value) || RegExEmail.test(value) == true) {
+                    return true
+                }
+                else {
+                    alert("você digitou errado")
+                    that.value = ""
+                    that.focus()
+                    return false
+                }
+            }
+        </script>
+    </head>
+    <style>
+        
+
+        
+        form {
+            
+            display:flex;
+            flex-direction: column;
+            width: 100vw;
+            min-height: 100vh;
+            border: color black 1px;
+            justify-content: center;
+            align-items: center;
+        }
+        .contentForm{
+            display: flex;
+            flex-direction: column;
+            width:70%;
+            align-items: center;
+            background-color: rgb(255,255,255);
+            box-shadow: 1px 1px 10px white;
+            border-radius: 10px;
+        }
+
+        form h3 {
+            text-align: center;
+            color: rgba(243, 112, 52, 0.993);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        form input{
+            margin-top: 10px;
+        }
+
+        form a{
+            margin-top: 6px;
+        }
+    </style>
+
+    <body>
+        <form action="login" method="post">
+            <div class="contentForm">
+            <h3>Login</h3>
+           <div class="control-input">
+            <input type="text" name="login" autocomplete="false" class="login" required onblur="Reg()"  />
+            <label for="login">
+                <span class="content-text">Seu e-mail ou celular...</span></label>
+           </div>
+
+            
+            <div class="control-input">
+                <input type="password" required name="senha"  />
+                <label for=senha>
+                    <span class="content-text">Sua senha...</span>
+                </label>
+            </div>
+            
+            <input type="submit" name="acao" value="enviar" />
+            
+            <a href="passwordRecovery">Esqueci Minha Senha</a>
+            <a href="newUser">Primeiro Acesso</a>
+            </div>
+        </form>
+
+    </body>
+
+    </html>

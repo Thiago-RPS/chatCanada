@@ -1,0 +1,25 @@
+{
+  "name": "chatcanada",
+  "version": "1.0.0",
+  "description": "Chat Via socke com Nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thiago-RPS/chatCanada.git"
+  },
+  "keywords": [
+    "Chat WhatsUp"
+  ],
+  "author": "Turma TI2021",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Thiago-RPS/chatCanada/issues"
+  },
+  "homepage": "https://github.com/Thiago-RPS/chatCanada#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
