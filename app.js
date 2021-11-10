@@ -40,6 +40,17 @@ app.post("/login",(req, res)=>{
     res.status=400
     res.sendFile("public/home.html",{root:__dirname})
 })
+app.post("/signin",(req, res)=>{
+    var login = req.body.login
+    var senha = req.body.senha
+    var name = req.body.usuario
+    var telefone = req.body.telefone
+    var confirmarsenha = req.body.confirmarsenha
+    users.push({
+        login,senha,name,telefone
+    })
+    res.sendFile("public/home.html",{root:__dirname})
+})
 
 app.listen(port,()=>{
     console.log("servidor rodando na porta "+ port)
