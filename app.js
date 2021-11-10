@@ -13,31 +13,35 @@ const users =[
 
 
 app.use(express.static('public'))
-
+app.use(express.urlencoded({ extended: true }));
 app.get("/",(req, res)=>{
-   
+     console.log(req.query)
+
      res.sendFile("public/home.html",{root:__dirname})
 })
-
+app.get("/newUser",(req,res)=>{
+    res.sendFile("public/signin.html",{root:__dirname})
+})
+app.get("/passwordRecovery",(req,res)=>{
+    res.sendFile("public/recuperarsenha.html",{root:__dirname})
+})
 app.post("/login",(req, res)=>{
-    var login = req.params.login
-    var senha =  req.params.senha
-    for (var i in req)
-    console.log(req[i])
-    var user = users.filter((u)=>{
-        
-        return (u.login===login && u.senha === senha)
+    var login = req.body.login
+    var senha = req.body.senha
+    console.log(req.body)
+    var User = users.filter((user)=>{
+        return (user.login===login && user.senha === senha)
     })
-
-    if (user.length == 0){
+    
+    if (User.length > 0){
         res.status=200
         res.sendFile("public/conversas.html",{root:__dirname})    
     }
     res.status=400
     res.sendFile("public/home.html",{root:__dirname})
-
 })
 
 app.listen(port,()=>{
     console.log("servidor rodando na porta "+ port)
 })
+
