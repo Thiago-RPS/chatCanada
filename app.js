@@ -25,6 +25,11 @@ app.get("/newUser",(req,res)=>{
 app.get("/passwordRecovery",(req,res)=>{
     res.sendFile("public/recuperarsenha.html",{root:__dirname})
 })
+
+app.get("/novamsg", (req,res)=>{
+    res.sendFile("public/páginanovamsg.html", {root:__dirname})
+})
+
 app.post("/login",(req, res)=>{
     var login = req.body.login
     var senha = req.body.senha
