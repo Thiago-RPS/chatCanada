@@ -4,15 +4,15 @@
 			<title>Recuperacao de senha</title>
 			<link rel="stylesheet" href="style/default.css">
 			<link rel="stylesheet" href="style/recuperaSenha.css">
-			<script type="text/javascript" src="style/recsenha.js"></script>
+			<script type="text/javascript" src="js/recuperaSenha.js"></script>
 		</head>
 		
 	<body>
-		<form>
+		<form action="novasenha" method="POST">
 			<h3>Recupere sua senha</h3>
 			<div class="control-input">
-				<input type="text" name="nmEmail" required onblur= 'digiteEMAIL(nmEmail)' />
-				<label for="nmEmail">
+				<input type="text" name="login" required />
+				<label for="login">
 					<span class="content-text">Email</span>
 				</label>
 			</div>
@@ -23,8 +23,8 @@
 				</label>
 			</div>
 			<div class="control-input">
-				<input type="password" name="recSenha" required onblur="checarSenha(senha,recSenha)" />
-				<label for="recSenha">
+				<input type="password" name="senha" />
+				<label for="senha">
 					<span class="content-text">Confirme a senha</span>
 				</label>
 			</div>

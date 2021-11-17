@@ -25,6 +25,23 @@ app.get("/newUser",(req,res)=>{
 app.get("/passwordRecovery",(req,res)=>{
     res.sendFile("public/recuperarsenha.html",{root:__dirname})
 })
+
+app.post("/novasenha",(req,res)=>{
+    var User = users.map((user)=>{
+        var login = req.body.login
+        var senha = req.body.senha // array 2 valores
+        if (senha[0] != senha[1]){
+            res.status = 200
+            res.sendFile("public/recuperarsenha.html",{root:__dirname})
+        }
+        
+        if (user.login===login){
+            user.senha = senha[0]
+            res.send("Senha Alterada com sucesso")
+        }
+    })
+})
+
 app.post("/login",(req, res)=>{
     var login = req.body.login
     var senha = req.body.senha
