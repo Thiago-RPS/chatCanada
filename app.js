@@ -2,14 +2,9 @@ const express = require("express")
 const app = express()
 const port = 3000
 const fs = require("fs")
-
-const users =[
-    {
-        name:"ISA",
-        login:"turma1@colegiocanada.g12.br", 
-        senha:"12345"
-    }
-]
+const userBd = require('./BD/users').Bd()
+console.log(userBd)
+ 
 
 
 app.use(express.static('public'))
@@ -69,6 +64,11 @@ app.post("/signin",(req, res)=>{
     res.sendFile("public/home.html",{root:__dirname})
 })
 
+
+app.get("/findUser",(req,res)=>{
+    var text = req.query.text
+    res.send(userBd.find(text))    
+})
 
 app.listen(port,()=>{
     console.log("servidor rodando na porta "+ port)
