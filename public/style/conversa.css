@@ -155,7 +155,7 @@ img.avatar{
     align-self: flex-end;
     align-content: flex-end;
     align-items: flex-end;
-    background-color: lightgreen;
+    background-color: rgb(255, 215, 169);
 }
 .mgBox.me{
     align-self: flex-start;
