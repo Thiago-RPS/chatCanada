@@ -60,9 +60,11 @@ window.onload = function () {
     
     var json = []
     x.onreadystatechange = function () {
+        console.log(this.status)
         if (this.readyState == 4 && this.status == 200) {
             // Typical action to be performed when the document is ready:
             json = (JSON.parse(x.responseText))
+            mostrarConversas(json,"")
         }
     }
     x.open("GET", "JSON/conversas.json?user=Alunos", true);
@@ -70,15 +72,15 @@ window.onload = function () {
 
     document.getElementById("findTalk").onkeyup=function(){
         var str = this.value
-        callBack(json, str)
+        mostrarConversas(json, str)
     }
 
-    var callBack = function (jTalks, str) {
+    var mostrarConversas = function (jTalks, str) {
         var str
-
-        var j = jTalks.filter(obj => {
-            if (str.length == "")
-               return true
+        var j
+        if (str.length !== 0){
+           j = jTalks.filter(obj => {
+            
             var regEx = new RegExp(str,"gi")
             if (regEx.test(obj.msgLast)==true){
                 return true    
@@ -87,12 +89,16 @@ window.onload = function () {
                 return true    
             }    
             return false
-        })
+        })}
+        else{j=jTalks}
         console.log(j)
         document.getElementsByClassName("containerTalk").item(0).innerHTML=""
         
         j.forEach(obj=>{
             var el = moduleTalk(obj)
+            el.onclick=function(){
+                openChat()
+            }
             document.getElementsByClassName("containerTalk").item(0).appendChild(el)
         })
     }
