@@ -1,49 +1,55 @@
 [
 
 {
-  "id":1,
+  "idChat":1,
   "owner":"Alana",
-  "name":" Turco ",
-  "dtLastMsg":"2021-11-24T09:08:15:09",
+  "name":" Thiago ",
+  "dtLastMsg":"2021-11-24T09:08:15",
   "lastMsg":{
     "from":"Alana",
-    "msg":"Salve Turco Tamo junto na parada",
-    "date":"2021-11-24T09:08:15:09"
+    "msg":"Salve Thiago Tamo junto na parada",
+    "date":"2021-11-24T09:08:15",
+    "icon":""
   },
   "msgs":[
     {
-      "from":"Turco",
+      "from":"Thiago",
       "msg":"Eai Alana blz vou para a aula",
-      "date":"2021-11-24T09:08:12:09"
+      "date":"2021-11-24T09:08:12",
+      "icon":""
     },
     {
       "from":"Alana",
-      "msg":"Salve Turco Tamo junto na parada",
-      "date":"2021-11-24T09:08:15:09"
+      "msg":"Salve Thiago Tamo junto na parada",
+      "date":"2021-11-24T09:08:15",
+      "icon":""
     }
   ]
 },
 
 {
-  "id":1,
+  "idChat":1,
   "name":"Alana",
-  "owner":" Turco ",
-  "dtLastMsg":"2021-11-24T09:08:15:09",
+  "owner":"Thiago",
+  "dtLastMsg":"2021-11-24T09:08:15",
   "lastMsg":{
     "from":"Alana",
-    "msg":"Salve Turco Tamo junto na parada",
-    "date":"2021-11-24T09:08:15:09"
+    "msg":"Salve Thiagão Tamo junto na parada",
+    "date":"2021-11-24T09:08:15",
+    "icon":""
   },
   "msgs":[
     {
-      "from":"Turco",
+      "from":"Thiago",
       "msg":"Eai Alana blz vou para a aula",
-      "date":"2021-11-24T09:08:12:09"
+      "date":"2021-11-24T09:08:12",
+      "icon":""
     },
     {
       "from":"Alana",
-      "msg":"Salve Turco Tamo junto na parada",
-      "date":"2021-11-24T09:08:15:09"
+      "msg":"Salve Thiago Tamo junto na parada",
+      "date":"2021-11-24T09:08:15",
+      "icon":""
     }
   ]
 }

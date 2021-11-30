@@ -4,9 +4,9 @@ const port = 3000
 const fs = require("fs")
 const userBd = require('./BD/users').Bd()
 console.log(userBd)
- 
+const cookieparser = require("cookie-parser")
 
-
+app.use(cookieparser())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.get("/",(req, res)=>{
@@ -40,18 +40,21 @@ app.post("/novasenha",(req,res)=>{
 app.post("/login",(req, res)=>{
     var login = req.body.login
     var senha = req.body.senha
-    console.log(req.body)
-    var User = users.filter((user)=>{
+    
+    var User = userBd.get().filter((user)=>{
         return (user.login===login && user.senha === senha)
     })
     
     if (User.length > 0){
+        res.cookie("userName",User[0].name)
         res.status=200
         res.sendFile("public/conversas.html",{root:__dirname})    
     }
     res.status=400
     res.sendFile("public/home.html",{root:__dirname})
 })
+
+
 app.post("/signin",(req, res)=>{
     var login = req.body.login
     var senha = req.body.senha
