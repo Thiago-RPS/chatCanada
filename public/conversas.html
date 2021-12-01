@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +11,16 @@
     <link rel="STYLESHEET" TYPE="text/css" href="style/conversa.css">
     <script src="https://kit.fontawesome.com/95041753e6.js" crossorigin="anonymous"></script>
     <script src="js/conversas.js" ></script>
-    
+    <script src="socket.io/socket.io.js"></script>
+<script>
+    var socket = io()
+    console.log(socket)
+    socket.emit("login",{login:getCookie("login"), name:getCookie("userName")})
+    socket.on("conectados",name=>{
+        alert(`usuário ${name} conectado`)
+    })
+</script>
+
 </head>
 
 
@@ -24,7 +35,7 @@
                     <div class="userState">on-line</div>
                     <div class="messageState">Não Lidas 150</div>
                 </div>
-                <i class="fas fa-envelope-open-text IconNewMessage"></i>
+                <a href="newmessage"><i class="fas fa-envelope-open-text IconNewMessage"></i></a>
             </div>
             <div class="findBar">
                 <input type="text" placeholder="search..." id="findTalk">

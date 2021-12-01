@@ -1,3 +1,4 @@
+
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -26,6 +27,7 @@ Recebe como parametro a json da sala de conversa
 */
 var openChat = function (sala) {
     var elContent = document.getElementsByClassName("containerMsg").item(0)
+    elContent.innerHTML=""
     var elMsgUseBar = document.createElement("div")
     elMsgUseBar.className = ("msgUseBar")
     var contentHtml = ""
@@ -96,20 +98,13 @@ var openChat = function (sala) {
 
 
     elSendMsg.getElementsByClassName("send").item(0).onclick = function () {
-        if (document.getElementById("textBox").innerText.length == 0)
+        if (document.getElementsByClassName("textBox").item(0).innerText.length == 0)
             return
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                // Typical action to be performed when the document is ready:
-                var Msg = (JSON.parse(xmlhttp.responseText))
-                var elMsg = moduleMsg(Msg)
-                elMsgContent.appendChild(elMsg)
-            }
-        }
-        x.open("POST", "SendMsg", true);
-        x.send();
+            alert("msgEnviada")
+        socket.emit("sendMsg",{msg:document.getElementsByClassName("textBox").item(0).innerHTML, 
+                    "id":getCookie("conversaAtiva"),
+                    "userName":getCookie("userName")
+                })
 
     }
     elContent.appendChild(elSendMsg)
@@ -124,7 +119,7 @@ var moduleTalk = (json) => {
 
     var { lastMsg } = json
 
-    if (!lastMsg.icon.length == 0) {
+    if (!lastMsg.icon) {
         var elIU = document.createElement("i")
         elIU.className = "fas fa-users avatar"
         elUserIcon.appendChild(elIU)
@@ -145,14 +140,14 @@ var moduleTalk = (json) => {
     var
         elUserName = document.createElement("span")
     elUserName.className = 'userName'
-    elUserName.innerText = lastMsg.from;
+    elUserName.innerText = lastMsg.from || json.name;
     // -- add elUsername in elMsgBox
     elMsgBox.appendChild(elUserName)
 
     var
         elMessage = document.createElement("span")
     elMessage.className = 'message'
-    elMessage.innerText = lastMsg.msg;
+    elMessage.innerText = lastMsg.msg || "";
     // -- add elMessage in elMsgBox
     elMsgBox.appendChild(elMessage)
     // -- add elMessageBox in Talks
@@ -163,7 +158,7 @@ var moduleTalk = (json) => {
     elInfo.className = "infoMessage"
     var elDate = document.createElement("span")
     elDate.className = "dateTime"
-    elDate.innerText = new Date(lastMsg.date)
+    elDate.innerText = new Date(lastMsg.date||json.dtLastMsg)
     // -- add elDate in elInfo
     elInfo.appendChild(elDate)
     // -- add elInfo in elTalks
@@ -177,7 +172,9 @@ var moduleTalk = (json) => {
 
 window.onload = function () {
     var x = new XMLHttpRequest();
-
+    socket.on("send",conversa=>{
+        openChat(conversa)
+    })
     var json = []
     x.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -193,10 +190,18 @@ window.onload = function () {
             json.sort((a, b) => {
                 return !((new Date(a.dtLastMsg)) - (new Date(b.dtLastMsg)))
             })
+            var  id = getCookie("conversaAtiva")
+            var ativa = json.filter(chat=>{
+                return chat.idChat==id
+            })
+
             mostrarConversas(json, "")
+            if (ativa.length >0 ){
+                openChat(ativa[0])
+            }
         }
     }
-    x.open("GET", "JSON/conversas.json?user=Alunos", true);
+    x.open("GET", "conversas", true);
     x.send();
 
     document.getElementById("findTalk").onkeyup = function () {
@@ -228,9 +233,11 @@ window.onload = function () {
         document.getElementsByClassName("containerTalk").item(0).innerHTML = ""
 
         j.forEach(obj => {
+            console.log(obj)
             var el = moduleTalk(obj)
             el.onclick = function () {
                 openChat(obj)
+                setCookie("conversaAtiva",obj.idChat)
             }
             document.getElementsByClassName("containerTalk").item(0).appendChild(el)
         })

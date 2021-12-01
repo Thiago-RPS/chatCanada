@@ -38,6 +38,11 @@ const users = [
         name: "Fernando",
         login: "11975577252",
         senha: 'fe123'
+    },
+    {
+        name: "Kauan",
+        login: "11963038462",
+        senha: 'kauan123'
     }
 ]
 
