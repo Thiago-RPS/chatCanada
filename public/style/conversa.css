@@ -222,5 +222,15 @@ img.avatar{
 @media screen and (max-width:800px){
     .containerTalk{
         display:none;
+        width: 100%;
+    }
+    .talkBox{
+        width: auto;
+    }
+    .close{
+        display: none;
+    }
+    .open{
+        display:flex;
     }
 }

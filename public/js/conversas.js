@@ -140,7 +140,7 @@ var moduleTalk = (json) => {
     var
         elUserName = document.createElement("span")
     elUserName.className = 'userName'
-    elUserName.innerText = lastMsg.from || json.name;
+    elUserName.innerText = json.name;
     // -- add elUsername in elMsgBox
     elMsgBox.appendChild(elUserName)
 
@@ -173,7 +173,18 @@ var moduleTalk = (json) => {
 window.onload = function () {
     var x = new XMLHttpRequest();
     socket.on("send",conversa=>{
+        
         openChat(conversa)
+        var newJ=[]
+        json.map(obj=>{
+            if (obj.idChat == conversa.idChat )
+               newJ.push(conversa)
+            else newJ.push(obj)   
+              
+        })
+        json=newJ
+        mostrarConversas(json, "")   
+
     })
     var json = []
     x.onreadystatechange = function () {
@@ -188,7 +199,7 @@ window.onload = function () {
 
             // -- ordernando as menssagens pela a data
             json.sort((a, b) => {
-                return !((new Date(a.dtLastMsg)) - (new Date(b.dtLastMsg)))
+                return ((new Date(b.dtLastMsg)) - (new Date(a.dtLastMsg)))
             })
             var  id = getCookie("conversaAtiva")
             var ativa = json.filter(chat=>{
@@ -209,7 +220,10 @@ window.onload = function () {
         mostrarConversas(json, str)
     }
 
-
+    document.getElementsByClassName("infoUser").item(0).onclick=function(){
+        document.getElementsByClassName("containerTalk").item(0).className="containerTalk open"
+        document.getElementsByClassName("containerMsg").item(0).className="containerMsg close"
+    }
 
 
     var mostrarConversas = function (jTalks, str) {
@@ -238,6 +252,8 @@ window.onload = function () {
             el.onclick = function () {
                 openChat(obj)
                 setCookie("conversaAtiva",obj.idChat)
+                document.getElementsByClassName("containerTalk").item(0).className="containerTalk close"
+                document.getElementsByClassName("containerMsg").item(0).className="containerMsg open"
             }
             document.getElementsByClassName("containerTalk").item(0).appendChild(el)
         })

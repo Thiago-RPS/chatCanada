@@ -119,17 +119,22 @@ app.post("/login", (req, res) => {
 app.get("/newmsg", (req, res) => {
     var userName = req.query.name
     id += 1
+
+    
     var msgs = chat.filter(conversa => {
         var { name, owner } = conversa
-        return name == userName && owner == req.cookies.userName
+        console.log(name+"-"+userName+"//"+owner+"-"+req.cookies.userName)
+        return (name == userName && owner == req.cookies.userName)
     })
-
+    
     if (msgs.length > 0) {
+        console.log(msgs) 
         res.cookie("conversaAtiva", msgs[0].idChat)
         res.status = 200
         res.sendFile("public/conversas.html", { root: __dirname })
+        return
     }
-
+   
 
     chat.push({
         "idChat": id,
@@ -207,7 +212,6 @@ io.on('connection', (socket) => {
                 "date": date
             }
             conversa.dtLastMsg = date
-            console.log(conversa)
             if (userSocket[conversa.owner])
                userSocket[conversa.owner].emit("send",conversa)
         })

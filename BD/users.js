@@ -5,6 +5,16 @@ const users = [
         senha: 'turco123'
     },
     {
+        name: "Brandão",
+        login: "11968904133",
+        senha: '123456'
+    },
+    {
+        name: "Jps",
+        login: "11971669819",
+        senha: '123456'
+    },
+    {
         name: "Thiago",
         login: "11992993917",
         senha: 'thi007'
